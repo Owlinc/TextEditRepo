@@ -12,6 +12,7 @@
 		80222C2721354F2D00181290 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80222C2521354F2D00181290 /* Main.storyboard */; };
 		80222C2921354F2E00181290 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80222C2821354F2E00181290 /* Assets.xcassets */; };
 		80222C2C21354F2E00181290 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80222C2A21354F2E00181290 /* LaunchScreen.storyboard */; };
+		80222C342135642400181290 /* UIFont+Traits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80222C332135642400181290 /* UIFont+Traits.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		80222C2821354F2E00181290 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		80222C2B21354F2E00181290 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		80222C2D21354F2E00181290 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		80222C332135642400181290 /* UIFont+Traits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Traits.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				80222C2821354F2E00181290 /* Assets.xcassets */,
 				80222C2A21354F2E00181290 /* LaunchScreen.storyboard */,
 				80222C2D21354F2E00181290 /* Info.plist */,
+				80222C332135642400181290 /* UIFont+Traits.swift */,
 			);
 			path = "textedit-example";
 			sourceTree = "<group>";
@@ -135,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80222C342135642400181290 /* UIFont+Traits.swift in Sources */,
 				80222C2421354F2D00181290 /* ViewController.swift in Sources */,
 				80222C2221354F2D00181290 /* AppDelegate.swift in Sources */,
 			);
