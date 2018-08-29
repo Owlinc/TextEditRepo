@@ -9,10 +9,14 @@
 import UIKit
 
 class ViewController: UIViewController {
+    var executedCommands:[Command] = []
     @IBOutlet weak var textView: UITextView?
+    
+    var state: ViewControllerState!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        state = ViewControllerStateCommon(viewController: self)
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 44.0))
         toolbar.items = [
             UIBarButtonItem(image: UIImage(named: "bold"), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(toggleBold)),
@@ -20,14 +24,34 @@ class ViewController: UIViewController {
         
         ]
         textView?.inputAccessoryView = toolbar
+        
+        self.becomeFirstResponder()
+    }
+   
+    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        guard event?.subtype == .motionShake else {
+            return
+        }
+        self.undoLastCommand()
+    }
+    
+    
+    func execute(command: Command) {
+        executedCommands.append(command)
+        command.execute()
+    }
+    
+    func undoLastCommand() {
+        let c = executedCommands.popLast()
+        c?.undo()
     }
     
     @objc func toggleItalic() {
-        textView?.font = textView?.font?.copyWithToggled(traits: .traitItalic)
+        state.toggleItalic()
     }
     
     @objc func toggleBold() {
-        textView?.font = textView?.font?.copyWithToggled(traits: .traitBold)
+        state.toggleBold()
     }
     
 }
