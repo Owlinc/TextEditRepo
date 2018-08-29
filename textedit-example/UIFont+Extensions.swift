@@ -26,4 +26,8 @@ extension UIFont {
         
         return UIFont(descriptor: (descriptor.withSymbolicTraits(newTraits))!, size: size)
     }
+    
+    func copyWith(size: CGFloat) -> UIFont {
+        return UIFont(descriptor: self.fontDescriptor, size: size)
+    }
 }
