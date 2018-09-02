@@ -17,12 +17,36 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         state = ViewControllerStateCommon(viewController: self)
-        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 44.0))
-        toolbar.items = [
-            UIBarButtonItem(image: UIImage(named: "bold"), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(toggleBold)),
-            UIBarButtonItem(image: UIImage(named: "italic"), landscapeImagePhone: nil, style: .plain, target: self, action: #selector(toggleItalic)),
         
-        ]
+        let toolbar = UIToolbar(
+            frame: CGRect(
+                x: 0,
+                y: 0,
+                width: UIScreen.main.bounds.width,
+                height: 44.0))
+        
+        toolbar.items = [
+            UIBarButtonItem(
+                image: UIImage(named: "bold"),
+                landscapeImagePhone: nil, style: .plain,
+                target: self,
+                action: #selector(toggleBold)),
+            UIBarButtonItem(
+                image: UIImage(named: "italic"),
+                landscapeImagePhone: nil,
+                style: .plain, target: self,
+                action: #selector(toggleItalic)),
+            UIBarButtonItem(
+                image: UIImage(named: "plusIcon"),
+                landscapeImagePhone: nil, style: .plain,
+                target: self,
+                action: #selector(increaseFontSize)),
+            UIBarButtonItem(
+                image: UIImage(named: "minusIcon"),
+                landscapeImagePhone: nil,
+                style: .plain, target: self,
+                action: #selector(increaseFont))]
+        
         textView?.inputAccessoryView = toolbar
         
         self.becomeFirstResponder()
@@ -53,5 +77,14 @@ class ViewController: UIViewController {
     @objc func toggleBold() {
         state.toggleBold()
     }
+    
+    @objc func plusFontSize() {
+        state.increaseFontSize()
+    }
+    
+    @objc func minusFontSize() {
+        state.increaseFont()
+    }
+    
     
 }

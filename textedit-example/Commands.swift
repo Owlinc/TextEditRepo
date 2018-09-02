@@ -34,3 +34,34 @@ class TraitsToggleCommand: Command {
     }
     
 }
+
+class FontSizeCommand: Command {
+    weak var textView: UITextView?
+    let size: CGFloat
+    let initialSize: CGFloat?
+    
+    init(receiver: UITextView?, size: CGFloat) {
+        textView = receiver
+        self.size = size
+        self.initialSize = textView?.font?.pointSize
+    }
+    
+    func execute() {
+        guard
+            let textView = textView,
+            let initalFontSize = initialSize else {
+                return
+        }
+        let fontSizeToSet = size + initalFontSize
+        
+        textView.font = textView.font?.copyWith(size: fontSizeToSet)
+    }
+    
+    func undo() {
+        guard
+            let textView = textView,
+            let initalFontSize = initialSize else { return }
+        
+        textView.font = textView.font?.copyWith(size: initalFontSize)
+    }
+}
